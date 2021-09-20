@@ -644,6 +644,19 @@ input, select, textarea {
 			margin-top: 2vh;
 		}
 
+		div#hyplogo {
+			width: 100%;
+			height: auto;
+			display: flex;
+			align-content: center;
+			justify-content: center;
+		}
+
+		div#hyplogo img {
+			width: 20%;
+			align-self: center;
+		}
+
 /* Image */
 
 	.image {
@@ -1167,7 +1180,7 @@ input, select, textarea {
 			-webkit-transition: -webkit-transform 0.325s ease-in-out, -webkit-filter 0.325s ease-in-out;
 			-ms-transition: -ms-transform 0.325s ease-in-out, -ms-filter 0.325s ease-in-out;
 			transition: transform 0.325s ease-in-out, filter 0.325s ease-in-out;
-			background-image: url("../../UnsplashImages/BackgroundImages/marius-teodorescu-pXQncqqo1O4-unsplash.jpg");
+			background-image: url("https://images.unsplash.com/photo-1613738053817-7f0983aa456d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80");
 			background-position: center;
 			background-size: cover;
 			background-repeat: no-repeat;
