@@ -1,0 +1,284 @@
+Delivered-To: jamflynt@gmail.com
+Received: by 2002:a4a:bb86:0:0:0:0:0 with SMTP id h6csp5112997oop;
+        Tue, 7 Sep 2021 15:44:59 -0700 (PDT)
+X-Received: by 2002:a63:1f45:: with SMTP id q5mr576354pgm.385.1631054699575;
+        Tue, 07 Sep 2021 15:44:59 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1631054699; cv=none;
+        d=google.com; s=arc-20160816;
+        b=eT+1HrGWBT9vv1YxTkbY8Q12fo2MR4i+OHMx7ccX4BujmDYVHFpxo9zVehjYnqXGXd
+         0AM0IDbvUXDeg0eVAf6cF4AudU9CK0WtU47I1ZFIvrDV8jBI+VwmGYTq+fuPfvIrwV/V
+         v6D2kchyHtLlFuOCJ8qgN24y5uxlGtv/KIklCqW9gZTKBQytA9ZiX+1F6HoMLGzB4+Cc
+         GY4CsRWYz/Nwry5dHI3eJgtawR6ZlHGEbx1wgddWAtL6sTM0J/oQb/cVTLUTfBWpTMaI
+         8I3MQFSheprYFwFe3YqLhIUFAPsID0IJ2XQdPwEVN0TH0HF36PMxvPtcAew6QKM2D/aZ
+         KQVg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=RbiVEdLH6a81g086vAT0FHWCtzgH6ttgOA3J2MXC2cQ=;
+        b=s9mpGzwYugMYjM3LuChxSGvRg9DwZcuPpgEpU0iVcfhO98ud2K2LhYUA/eruhCs93v
+         HMSvS3YwGmyxzts+/exjepMIqgGtCUxm8dNFQpIvpk64jlPRWm561hFwjpwwoEGFPV9c
+         s9yvU5VZlY25zlhkk4KyfKwx8Mt3XTJ0hsWzTsAwa2IFGwfIVEZwHAN1HkIE+Kz0wTEA
+         n/7JWt97Pl6HfwSVKAwLwMR1JkfvN6Lciog18LXz4GdYLUGUPzRQz/8wgAw3g8HNG7bT
+         OsDng3Q+02WNQXiLuOh9IOLD23Ti/SyLLG7Dg/Tvrp2zJu00JbBP3XY8dBo1p6up9yW5
+         v3AA==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20210112 header.b=T+t+iHpJ;
+       spf=pass (google.com: domain of amanda.rules@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=amanda.rules@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Return-Path: <amanda.rules@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id z22sor142547pge.29.2021.09.07.15.44.59
+        for <Jamflynt@gmail.com>
+        (Google Transport Security);
+        Tue, 07 Sep 2021 15:44:59 -0700 (PDT)
+Received-SPF: pass (google.com: domain of amanda.rules@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20210112 header.b=T+t+iHpJ;
+       spf=pass (google.com: domain of amanda.rules@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=amanda.rules@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20210112;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to;
+        bh=RbiVEdLH6a81g086vAT0FHWCtzgH6ttgOA3J2MXC2cQ=;
+        b=T+t+iHpJkCjXPE31eAM/QwdhOiexYEhSfeh11klT8p/7bxnDo2RsE/58CDYk7n2yT1
+         YPtcWjKOroHXGThb5cgC0UDGMd7cBnROsxrqbBIBP4k7BUSvSIU9pCWROxA7YFbdN/ss
+         RGjcNwRyOiT+m3Z8ELguEJ+Qy5fkl0gffDBcZzDCCwKU/pd8Q0H50IhCkO1pVgTyVSEc
+         aLF6RHU4vkdjtfwwKTaq37NHDxI4HsMvy4onFKjzAQ0cYAeBcnFaDef06yw/9f5uCWsS
+         yRq4uBSlUflTYvE0RV9j99h2oA/3mX/7Ps3jBpLEwUnYdeb1vyoc2s93WVH117kxmjzR
+         ddGQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to;
+        bh=RbiVEdLH6a81g086vAT0FHWCtzgH6ttgOA3J2MXC2cQ=;
+        b=PdI9eMiFQKwbsIwnPe/jjuAF5zyeeSX3Jpo9K24Uu34EscQnxhvEDWhLg+roXahwer
+         Yagfv26JYE5kFhkGUxpoaQuZ84SOVzGvvemBv6PnGVbBApnk7YDJHVEV3WGCN8MeOkN1
+         KVl8/5TWbafH1tnFjMJm8+nMIKuDM28TNX2sL0ypexLrmuOHWQ9iCgkLsZAxWfFcNcNG
+         nyQJfqjMjrrOfADGJWWgIccG6lp0/aK8ZMy/u5gTKJmAGP7rqcfQA/6Mbgmso8V0DO1l
+         m3/dkQlmSNEhMrGkV6i/MnNOf7F/s0o3sNjIOh4v67gq9weDHZMu7iMjGukgYDVRs55S
+         HlAA==
+X-Gm-Message-State: AOAM530rTuq5wfo2slFYqNOcKgUX4amQsZRyt6q11Xvxl9IvI/sgzduX
+	xurpcgCudU8GkVV/Vb2tWlYZfnpn0nyEqpp2Q1PL4pjK
+X-Google-Smtp-Source: ABdhPJyR0XdGPWIdzETZaGH+XZT1oUsJUtjWnbxrn5uFP8ytZD6Aoz4b2PUTnFRvJQpSLcqDb380Gtl+mPGB92CILL4=
+X-Received: by 2002:a63:380e:: with SMTP id f14mr596526pga.267.1631054698908;
+ Tue, 07 Sep 2021 15:44:58 -0700 (PDT)
+MIME-Version: 1.0
+References: <CAEdNqCyumzrkF1DD2A=iNJijy93vh9U-zgo--uSmRnqgaFziDQ@mail.gmail.com>
+ <CH2PR10MB43916A165BF919E86A2717A9C7D39@CH2PR10MB4391.namprd10.prod.outlook.com>
+In-Reply-To: <CH2PR10MB43916A165BF919E86A2717A9C7D39@CH2PR10MB4391.namprd10.prod.outlook.com>
+From: Amanda <amanda.rules@gmail.com>
+Date: Tue, 7 Sep 2021 18:44:45 -0400
+Message-ID: <CAEdNqCxKoiOgnr+CHLnTzVW=ZosYbmoBW85NP31DegMr0Hi1=A@mail.gmail.com>
+Subject: Fwd: Information Required
+To: James Flynt <Jamflynt@gmail.com>
+Content-Type: multipart/alternative; boundary="000000000000f00e0b05cb6f83bf"
+
+--000000000000f00e0b05cb6f83bf
+Content-Type: text/plain; charset="UTF-8"
+
+---------- Forwarded message ---------
+From: Tonyana Cruz <libratarot@hotmail.com>
+Date: Tue, Sep 7, 2021 at 4:15 PM
+Subject: Re: Information Required
+To: Amanda <amanda.rules@gmail.com>
+
+
+ELEVATOR PITCH
+I am a Transformational Intuitive Tarot Reader who also utilizes the power
+of working with Dream Interpretation and Hypnosis.  Please, allow me to be
+your Subconscious  Specialist!  I check in with your energy to see where
+you are headed if you continue with the same mind-set and help you make
+more informed decisions.  How can I help you?
+
+CONTACT
+through website
+or libratarot@hotmail.com
+or FB biz page message
+
+Is that all you will be needing from me?
+------------------------------
+*From:* Amanda <amanda.rules@gmail.com>
+*Sent:* Monday, August 23, 2021 10:37 AM
+*To:* Tonyana <libratarot@hotmail.com>
+*Subject:* Information Required
+
+Hi! Jamie wrote down the things he needs to do your site. He will do a
+pretty simple site, so it won't take long and won't be overly complicated.
+There will be 4 separate pages: the general Home page, About Me with more
+detail than the home page blurb, Services with Prices, and a Contact page.
+He could also add a blog section if you wanted an area to write news
+updates and other thoughts, or enlightenments and information, etc.
+Basically, it is up to you whether you want a static info page to direct
+people to, or an engaging blog type site. Both are easy to set up, but one
+is more work for you.
+
+Okay, this is what he wrote down:
+
+"1. a url is a monthly or yearly expense. [he (or melissa) can set you up
+with all of that, but its the difference between www dot tarotbytonyana dot
+com and tarotbytonyana dot wordpress dot com, so highly recommended]
+
+2. An "about me" blurb -- just a few paragraphs telling her story [if you
+hate the idea of doing this, i can make one for your approval]
+
+3. Price List and Services
+ -- description of what each service is
+ -- any additional information you'd want to be included
+
+4. Any and all photos you would want featured, of yourself or your cards [I
+will draw anything decorative if needed, and include the art nouveau
+portrait of you if you'd like]
+
+5. Her "elevator pitch" -- a short paragraph about her bizness and who she
+is --> this is for the homepage and will be seen first
+
+6. Logo with 4 variations [I will make you some logos to approve]
+
+7. Address, location, phone number, email -- whatever contact information
+you are comfortable providing. [he can also make a form where they can just
+fill it out on there and email you]"
+
+Oh he also recommends setting up a google business page if you don't
+already have one.
+
+All right! This is a good step. Fill out what you can, ask anything you
+need to ask, and there's no rush on it.
+
+Have a great day!!
+
+--000000000000f00e0b05cb6f83bf
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><br><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=
+=3D"gmail_attr">---------- Forwarded message ---------<br>From: <b class=3D=
+"gmail_sendername" dir=3D"auto">Tonyana Cruz</b> <span dir=3D"auto">&lt;<a =
+href=3D"mailto:libratarot@hotmail.com">libratarot@hotmail.com</a>&gt;</span=
+><br>Date: Tue, Sep 7, 2021 at 4:15 PM<br>Subject: Re: Information Required=
+<br>To: Amanda &lt;<a href=3D"mailto:amanda.rules@gmail.com">amanda.rules@g=
+mail.com</a>&gt;<br></div><br><br>
+
+
+
+
+<div dir=3D"ltr">
+<div style=3D"font-family:Calibri,Helvetica,sans-serif;font-size:12pt;color=
+:rgb(0,0,0)">
+ELEVATOR PITCH</div>
+<div style=3D"font-family:Calibri,Helvetica,sans-serif;font-size:12pt;color=
+:rgb(0,0,0)">
+I am a Transformational Intuitive Tarot Reader who also utilizes the power =
+of working with Dream Interpretation and Hypnosis.=C2=A0 Please, allow me t=
+o be your Subconscious=C2=A0 Specialist!=C2=A0 I check in with your energy =
+to see where you are headed if you continue with
+ the same mind-set and help you make more informed decisions.=C2=A0 How can=
+ I help you?</div>
+<div style=3D"font-family:Calibri,Helvetica,sans-serif;font-size:12pt;color=
+:rgb(0,0,0)">
+<br>
+</div>
+<div style=3D"font-family:Calibri,Helvetica,sans-serif;font-size:12pt;color=
+:rgb(0,0,0)">
+CONTACT</div>
+<div style=3D"font-family:Calibri,Helvetica,sans-serif;font-size:12pt;color=
+:rgb(0,0,0)">
+through website=C2=A0</div>
+<div style=3D"font-family:Calibri,Helvetica,sans-serif;font-size:12pt;color=
+:rgb(0,0,0)">
+or <a href=3D"mailto:libratarot@hotmail.com" target=3D"_blank">libratarot@h=
+otmail.com</a></div>
+<div style=3D"font-family:Calibri,Helvetica,sans-serif;font-size:12pt;color=
+:rgb(0,0,0)">
+or FB biz page message</div>
+<div style=3D"font-family:Calibri,Helvetica,sans-serif;font-size:12pt;color=
+:rgb(0,0,0)">
+<br>
+</div>
+<div style=3D"font-family:Calibri,Helvetica,sans-serif;font-size:12pt;color=
+:rgb(0,0,0)">
+Is that all you will be needing from me?=C2=A0</div>
+<div id=3D"m_-7494795440174611762appendonsend"></div>
+<hr style=3D"display:inline-block;width:98%">
+<div id=3D"m_-7494795440174611762divRplyFwdMsg" dir=3D"ltr"><font style=3D"=
+font-size:11pt" face=3D"Calibri, sans-serif" color=3D"#000000"><b>From:</b>=
+ Amanda &lt;<a href=3D"mailto:amanda.rules@gmail.com" target=3D"_blank">ama=
+nda.rules@gmail.com</a>&gt;<br>
+<b>Sent:</b> Monday, August 23, 2021 10:37 AM<br>
+<b>To:</b> Tonyana &lt;<a href=3D"mailto:libratarot@hotmail.com" target=3D"=
+_blank">libratarot@hotmail.com</a>&gt;<br>
+<b>Subject:</b> Information Required</font>
+<div>=C2=A0</div>
+</div>
+<div>
+<div dir=3D"ltr">
+<div>Hi! Jamie wrote down the things he needs to do your site. He will do a=
+ pretty simple site, so it won&#39;t take long and won&#39;t be overly comp=
+licated.</div>
+<div>There will be 4 separate pages: the general Home page, About Me with m=
+ore detail than the home page blurb, Services with Prices, and a Contact pa=
+ge. He could also add a blog section if you wanted an area to write news up=
+dates and other thoughts, or enlightenments
+ and information, etc.</div>
+<div>Basically, it is up to you whether you want a static info page to dire=
+ct people to, or an engaging blog type site. Both are easy to set up, but o=
+ne is more work for you.</div>
+<div><br>
+</div>
+<div>Okay, this is what he wrote down:<br>
+<br>
+</div>
+<div>&quot;1. a url is a monthly or yearly expense. [he (or melissa) can se=
+t you up with all of that, but its the difference between www dot tarotbyto=
+nyana dot com and tarotbytonyana dot wordpress dot com, so highly recommend=
+ed]</div>
+<div><br>
+</div>
+<div>2. An &quot;about me&quot; blurb -- just a few paragraphs telling her =
+story [if you hate the idea of doing this, i can make one for your approval=
+]</div>
+<div><br>
+</div>
+<div>3. Price List and Services<br>
+</div>
+<div>=C2=A0-- description of what each service is<br>
+</div>
+<div>=C2=A0-- any additional information you&#39;d want to be included</div=
+>
+<div><br>
+</div>
+<div>4. Any and all photos you would want featured, of yourself or your car=
+ds [I will draw anything decorative if needed, and include the art nouveau =
+portrait of you if you&#39;d like]</div>
+<div><br>
+</div>
+<div>5. Her &quot;elevator pitch&quot; -- a short paragraph about her bizne=
+ss and who she is --&gt; this is for the homepage and will be seen first</d=
+iv>
+<div><br>
+</div>
+<div>6. Logo with 4 variations [I will make you some logos to approve]</div=
+>
+<div><br>
+</div>
+<div>7. Address, location, phone number, email -- whatever contact informat=
+ion you are comfortable providing. [he can also make a form where they can =
+just fill it out on there and email you]&quot;</div>
+<div><br>
+</div>
+<div>Oh he also recommends setting up a google business page if you don&#39=
+;t already have one.</div>
+<div><br>
+</div>
+<div>All right! This is a good step. Fill out what you can, ask anything yo=
+u need to ask, and there&#39;s no rush on it.</div>
+<div><br>
+</div>
+<div>Have a great day!!<br>
+</div>
+</div>
+</div>
+</div>
+
+</div></div>
+
+--000000000000f00e0b05cb6f83bf--
