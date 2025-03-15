@@ -2522,3 +2522,8 @@ body.is-preload #banner p {
   align-items: center;
   justify-content: center;
 }
+
+#hyplogo img {
+  width: 100%;
+  max-width: 7em;
+}
