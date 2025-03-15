@@ -2300,20 +2300,20 @@ body.is-preload #banner p {
 }
 
 .wrapper.spotlight.style2 {
-  background-color: #2E4A3B;
+  background-color: #62776C;
 }
 
 .wrapper.spotlight.style2:before,
 .wrapper.spotlight.style2:after {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:%232E4A3B%3B' /%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:%2362776C%3B' /%3E%3C/svg%3E");
 }
 
 .wrapper.spotlight.style2:before {
-  box-shadow: inset 0 -1px 0 0 #2E4A3B, 0 1px 0 0 #2E4A3B;
+  box-shadow: inset 0 -1px 0 0 #62776C, 0 1px 0 0 #62776C;
 }
 
 .wrapper.spotlight.style2:after {
-  box-shadow: inset 0 -1px 0 0 #2E4A3B, 0 1px 0 0 #2E4A3B;
+  box-shadow: inset 0 -1px 0 0 #62776C, 0 1px 0 0 #62776C;
 }
 
 @media screen and (max-width: 980px) {
