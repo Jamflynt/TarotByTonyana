@@ -2516,3 +2516,9 @@ body.is-preload #banner p {
     padding: 2em 1.5em 0.1em 1.5em;
   }
 }
+
+#hyplogo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
