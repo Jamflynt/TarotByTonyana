@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/taromgfk/public_html/
+    - export DEPLOYPATH=$HOME/public_html/
     - /bin/cp -R _site/* $DEPLOYPATH
