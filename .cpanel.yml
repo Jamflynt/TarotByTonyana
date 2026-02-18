@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=$HOME/public_html/
+    - export DEPLOYPATH=$HOME/subconsciousspecialist.com/
     - /bin/cp -R _site/* $DEPLOYPATH
