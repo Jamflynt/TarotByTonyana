@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		{% include "partials/head.njk" %}
+	</head>
+	<body class="is-preload">
+
+		<canvas id="stars-canvas"></canvas>
+
+		<div id="page-wrapper">
+
+			{% include "partials/nav.njk" %}
+
+			{{ content | safe }}
+
+			{% if showTestimonials !== false and showFooter !== false %}
+			{% include "partials/testimonials.njk" %}
+			{% endif %}
+			{% if showFooter !== false %}
+			{% include "partials/footer.njk" %}
+			{% endif %}
+
+		</div>
+
+		{% include "partials/scripts.njk" %}
+
+	</body>
+</html>

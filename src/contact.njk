@@ -1,0 +1,53 @@
+---
+layout: base.njk
+title: Book a Tarot Reading in Cincinnati OH
+description: Contact Tonyana Cruz to schedule a tarot reading, hypnotherapy session, or private party in Cincinnati OH. In-person, phone, and Voxer readings available. Reach out today.
+showFooter: false
+permalink: /contact.html
+---
+
+<section id="wrapper">
+	<header>
+		<div class="inner">
+			<h2>Connect and Begin Your Journey</h2>
+			<p>Ready to unlock your intuitive potential? Reach out today to schedule a session or ask questions. Tonyana is eager to guide you toward clarity and empowerment on your personal path.</p>
+		</div>
+	</header>
+
+	<div class="wrapper">
+		<div class="inner">
+			{% include "partials/logo-static.njk" %}
+			<form method="post" action="{{ site.formAction }}">
+				<input type="hidden" name="_subject" value="New message from Subconscious Specialist website" />
+				<input type="hidden" name="_captcha" value="true" />
+				<input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+				<div class="fields">
+					<div class="field">
+						<label for="name">Name</label>
+						<input type="text" name="name" id="name" />
+					</div>
+					<div class="field">
+						<label for="email">Email</label>
+						<input type="email" name="email" id="email" />
+					</div>
+					<div class="field">
+						<label for="message">Message</label>
+						<textarea name="message" id="message" rows="4"></textarea>
+					</div>
+				</div>
+				<ul class="actions">
+					<li><input type="submit" value="Send Message" /></li>
+				</ul>
+			</form>
+			<ul class="contact">
+				<li class="icon solid fa-envelope"><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+				<li class="icon brands fa-facebook-f"><a href="{{ site.social.facebook }}" target="_blank" rel="noopener noreferrer">{{ site.social.facebookDisplay }}</a></li>
+				<li class="icon brands fa-instagram"><a href="{{ site.social.instagram }}" target="_blank" rel="noopener noreferrer">{{ site.social.instagramDisplay }}</a></li>
+			</ul>
+			<ul class="copyright">
+				<li>&copy;{{ site.copyrightYear }} {{ site.title }} All rights reserved.</li>
+			</ul>
+		</div>
+	</div>
+
+</section>

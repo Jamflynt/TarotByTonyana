@@ -1,0 +1,145 @@
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<meta name="description" content="{{ description | default(site.description) }}" />
+<title>{{ title }} | {{ site.title }}</title>
+
+<!-- Canonical URL -->
+<link rel="canonical" href="{{ site.url }}{{ permalink | default('/') }}" />
+
+<!-- Open Graph -->
+<meta property="og:title" content="{{ title }} | {{ site.title }}" />
+<meta property="og:description" content="{{ description | default(site.description) }}" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="{{ site.url }}{{ permalink | default('/') }}" />
+<meta property="og:image" content="{{ site.url }}/images/about1.jpg" />
+<meta property="og:site_name" content="{{ site.title }}" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{ title }} | {{ site.title }}" />
+<meta name="twitter:description" content="{{ description | default(site.description) }}" />
+<meta name="twitter:image" content="{{ site.url }}/images/about1.jpg" />
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+	"@context": "https://schema.org",
+	"@type": "ProfessionalService",
+	"name": "{{ site.title }} - {{ site.author }}",
+	"alternateName": ["Tarot By Tonyana", "Tonyana Cruz Tarot", "Subconscious Specialist"],
+	"description": "{{ site.description }}",
+	"url": "{{ site.url }}",
+	"email": "{{ site.email }}",
+	"image": "{{ site.url }}/images/about1.jpg",
+	"priceRange": "$30-$140",
+	"areaServed": [
+		{"@type": "City", "name": "Cincinnati", "containedInPlace": {"@type": "State", "name": "Ohio"}},
+		{"@type": "City", "name": "Fairfield", "containedInPlace": {"@type": "State", "name": "Ohio"}},
+		{"@type": "City", "name": "Mason", "containedInPlace": {"@type": "State", "name": "Ohio"}},
+		{"@type": "City", "name": "West Chester", "containedInPlace": {"@type": "State", "name": "Ohio"}},
+		{"@type": "City", "name": "Dayton", "containedInPlace": {"@type": "State", "name": "Ohio"}},
+		{"@type": "City", "name": "Northern Kentucky"}
+	],
+	"geo": {
+		"@type": "GeoCoordinates",
+		"latitude": "39.1031",
+		"longitude": "-84.5120"
+	},
+	"hasOfferCatalog": {
+		"@type": "OfferCatalog",
+		"name": "Intuitive Services",
+		"itemListElement": [
+			{
+				"@type": "Offer",
+				"itemOffered": {
+					"@type": "Service",
+					"name": "Tarot Reading - In Person",
+					"description": "Transformational intuitive tarot card reading in the Cincinnati, OH area. Available in 30 minute and 1 hour sessions."
+				}
+			},
+			{
+				"@type": "Offer",
+				"itemOffered": {
+					"@type": "Service",
+					"name": "Tarot Reading - Phone",
+					"description": "Intuitive tarot card reading by phone. Available in 30 minute and 1 hour sessions for clients anywhere."
+				}
+			},
+			{
+				"@type": "Offer",
+				"itemOffered": {
+					"@type": "Service",
+					"name": "Astrology Chart Reading",
+					"description": "Basic astrology chart reading to complement tarot insights and provide deeper cosmic guidance."
+				}
+			},
+			{
+				"@type": "Offer",
+				"itemOffered": {
+					"@type": "Service",
+					"name": "Clinical Hypnotherapy Session",
+					"description": "Certified clinical hypnotherapy session to break self-defeating patterns and explore the subconscious mind. IBCP accredited."
+				}
+			},
+			{
+				"@type": "Offer",
+				"itemOffered": {
+					"@type": "Service",
+					"name": "Dream Interpretation",
+					"description": "Professional dream interpretation to help unlock messages from your subconscious mind."
+				}
+			},
+			{
+				"@type": "Offer",
+				"itemOffered": {
+					"@type": "Service",
+					"name": "Death Doula - End of Life Support",
+					"description": "Non-medical holistic end-of-life support for individuals and respite for caregivers in Cincinnati, OH."
+				}
+			},
+			{
+				"@type": "Offer",
+				"itemOffered": {
+					"@type": "Service",
+					"name": "Private Tarot Party",
+					"description": "Book a private tarot reading party for groups of 6 or more. Host is read free! Available in Cincinnati and surrounding areas."
+				}
+			},
+			{
+				"@type": "Offer",
+				"itemOffered": {
+					"@type": "Service",
+					"name": "Business Event Tarot Readings",
+					"description": "Hire a professional tarot reader for your business event. Quick 7-minute mini-readings for employees or patrons."
+				}
+			}
+		]
+	},
+	"founder": {
+		"@type": "Person",
+		"name": "Tonyana Cruz",
+		"jobTitle": "Transformational Intuitive Tarot Reader & Clinical Hypnotherapist",
+		"knowsAbout": ["Tarot", "Tarot Reading", "Astrology", "Hypnotherapy", "Clinical Hypnosis", "Dream Interpretation", "Parapsychology", "Death Doula", "End of Life Support"]
+	},
+	"sameAs": [
+		"{{ site.social.facebook }}",
+		"{{ site.social.instagram }}"
+	],
+	"aggregateRating": {
+		"@type": "AggregateRating",
+		"ratingValue": "5",
+		"reviewCount": "3"
+	}
+}
+</script>
+{% if jsonld %}
+<script type="application/ld+json">
+{{ jsonld | safe }}
+</script>
+{% endif %}
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:200,700|Source+Sans+Pro:300,600,300italic,600italic" />
+<link rel="stylesheet" href="/assets/css/main.css" />
+<noscript><link rel="stylesheet" href="/assets/css/noscript.css" /></noscript>

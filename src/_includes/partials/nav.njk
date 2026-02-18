@@ -1,0 +1,18 @@
+<header id="header"{{ ' class="alt"' | safe if headerClass == 'alt' }}>
+	<h1><a href="/index.html">{{ headerTitle | default(site.title) }}</a></h1>
+	<nav>
+		<a href="#menu">Menu</a>
+	</nav>
+</header>
+
+<nav id="menu">
+	<div class="inner">
+		<h2>Menu</h2>
+		<ul class="links">
+			{%- for item in navigation %}
+			<li><a href="{{ item.url }}">{{ item.text }}</a></li>
+			{%- endfor %}
+		</ul>
+		<a href="#" class="close">Close</a>
+	</div>
+</nav>
