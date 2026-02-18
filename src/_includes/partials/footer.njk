@@ -3,6 +3,9 @@
 		<h2 class="major">Connect and Begin Your Journey</h2>
 		<p>Ready to unlock your intuitive potential? Reach out today to schedule a session or ask questions. Tonyana is eager to guide you toward clarity and empowerment on your personal path.</p>
 		<form method="post" action="{{ site.formAction }}">
+			<input type="hidden" name="_subject" value="New message from Subconscious Specialist website" />
+			<input type="hidden" name="_captcha" value="true" />
+			<input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
 			<div class="fields">
 				<div class="field">
 					<label for="name">Name</label>
@@ -27,7 +30,7 @@
 			<li class="icon brands fa-instagram"><a href="{{ site.social.instagram }}" target="_blank" rel="noopener noreferrer">{{ site.social.instagramDisplay }}</a></li>
 		</ul>
 		<ul class="copyright">
-			<li>&copy;{{ site.copyrightYear }} {{ site.title }} All rights reserved.</li>
+			<li><svg class="footer-diamond" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none" stroke="#F5F1E9" stroke-width="1.5"><polygon points="10,1 19,10 10,19 1,10" /></svg>&copy;{{ site.copyrightYear }} {{ site.title }} All rights reserved.</li>
 		</ul>
 	</div>
 </section>

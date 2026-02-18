@@ -16,10 +16,11 @@ permalink: /contact.html
 
 	<div class="wrapper">
 		<div class="inner">
-			<div class="logo-list-item">
-				<img class="full-logo" src="/images/TonyanaLogo01A.png" alt="Tonyana Cruz Logo" />
-			</div>
+			{% include "partials/logo-static.njk" %}
 			<form method="post" action="{{ site.formAction }}">
+				<input type="hidden" name="_subject" value="New message from Subconscious Specialist website" />
+				<input type="hidden" name="_captcha" value="true" />
+				<input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
 				<div class="fields">
 					<div class="field">
 						<label for="name">Name</label>
