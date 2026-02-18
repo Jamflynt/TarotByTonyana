@@ -1746,14 +1746,18 @@ button:disabled,
 
 @media screen and (max-width: 736px) {
   #header {
-    height: 2.75em;
-    line-height: 2.75em;
+    height: 3.25em;
+    line-height: 3.25em;
+  }
+  #header h1 {
+    font-size: 0.7em;
   }
   #header nav {
     top: 0;
     right: 0;
     height: inherit;
     line-height: inherit;
+    font-size: 1em;
   }
   #header nav a {
     height: inherit;
@@ -1761,8 +1765,9 @@ button:disabled,
   }
   #header nav a[href="#menu"] {
     box-shadow: none;
-    padding: 0 1em;
+    padding: 0 1.25em;
     border-radius: 0;
+    font-size: 1em;
   }
   #header nav a[href="#menu"]:hover,
   #header nav a[href="#menu"]:active {
@@ -1771,11 +1776,19 @@ button:disabled,
 }
 
 @media screen and (max-width: 480px) {
+  #header h1 {
+    font-size: 0.65em;
+    max-width: calc(100% - 4em);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
   #header nav a[href="#menu"] {
-    width: 4em;
+    width: 3.5em;
     white-space: nowrap;
     text-indent: 4em;
     position: relative;
+    font-size: 1.1em;
   }
   #header nav a[href="#menu"]:before {
     width: inherit;
@@ -1783,9 +1796,10 @@ button:disabled,
     top: 0;
     left: 0;
     text-indent: 0;
-    text-align: right;
+    text-align: center;
     margin-left: 0;
-    padding-right: 1.25em;
+    padding-right: 0;
+    font-size: 1.25em;
   }
 }
 
@@ -1918,6 +1932,7 @@ body.is-menu-visible #menu .inner {
 
 #banner {
   padding: 10em 0 4.75em 0;
+  position: relative;
 }
 
 #banner .inner {
@@ -2117,7 +2132,7 @@ body.is-preload #banner p {
 
 @media screen and (max-width: 736px) {
   #wrapper > header {
-    padding: 6.5em 2em 3em 2em;
+    padding: 5em 2em 2em 2em;
     background-size: auto, 125%;
     margin-bottom: -2.5em;
   }
@@ -2125,7 +2140,7 @@ body.is-preload #banner p {
     font-size: 1.25em;
   }
   #wrapper > header p {
-    font-size: 0.8em;
+    font-size: 0.75em;
   }
 }
 
@@ -2561,7 +2576,7 @@ body.is-preload #banner p {
 .testimonial-rotator {
   text-align: center;
   padding: 2em 0;
-  min-height: 8em;
+  position: relative;
 }
 
 .testimonial-rotator blockquote {
@@ -2570,14 +2585,16 @@ body.is-preload #banner p {
   opacity: 0;
   transition: opacity 0.8s ease;
   position: absolute;
+  top: 0;
   left: 0;
   right: 0;
-  padding: 0 2em;
+  padding: 2em 2em 0;
+  pointer-events: none;
 }
 
 .testimonial-rotator blockquote.active {
   opacity: 1;
-  position: relative;
+  pointer-events: auto;
 }
 
 .testimonial-rotator cite {
@@ -2803,4 +2820,65 @@ a.special:not(.button):hover {
 
 .wrapper .inner h3.major:hover {
   border-bottom-color: rgba(245, 241, 233, 0.35);
+}
+
+/* Scroll indicator */
+.scroll-indicator {
+  display: block;
+  text-align: center;
+  border: none;
+  position: absolute;
+  bottom: 2em;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: scroll-bounce 2s ease-in-out infinite;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.scroll-indicator:hover {
+  opacity: 1;
+}
+
+.scroll-indicator svg {
+  width: 2em;
+  height: auto;
+}
+
+@keyframes scroll-bounce {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(0.5em);
+  }
+}
+
+/* Form celebration particles */
+.form-particle {
+  position: absolute;
+  pointer-events: none;
+  font-size: 1.2em;
+  z-index: 10000;
+  animation: particle-burst 1.2s ease-out forwards;
+}
+
+@keyframes particle-burst {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(0.3) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--dx), var(--dy)) scale(var(--scale)) rotate(360deg);
+  }
+}
+
+.form-btn-glow {
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.6), 0 0 40px rgba(212, 175, 55, 0.3) !important;
+  border-color: #D4AF37 !important;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
