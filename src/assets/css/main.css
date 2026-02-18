@@ -2782,7 +2782,7 @@ body.is-preload #banner p {
   width: 100%;
   height: 100%;
   pointer-events: none;
-  z-index: 0;
+  z-index: 2;
 }
 
 /* Smooth scrolling */
@@ -2834,6 +2834,7 @@ a.special:not(.button):hover {
   animation: scroll-bounce 2s ease-in-out infinite;
   opacity: 0.6;
   transition: opacity 0.3s ease;
+  z-index: 3;
 }
 
 .scroll-indicator:hover {
