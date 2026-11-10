@@ -42,7 +42,7 @@ The site deploys via cPanel Git. After building:
 
 ```
 src/
-  _data/           Site-wide variables (site.json, navigation.json)
+  _data/           Site-wide variables (site.js, navigation.json, experience.js)
   _includes/       Shared layouts and partials (base.njk, nav, footer, etc.)
   index.njk        Homepage
   about.njk        About page
@@ -54,4 +54,4 @@ src/
 _site/             Generated output (do not edit directly)
 ```
 
-To edit shared elements (nav, footer, contact form), update the partials in `src/_includes/partials/`. To change site-wide info (email, social links, copyright year), edit `src/_data/site.json`.
+To edit shared elements (nav, footer, contact form), update the partials in `src/_includes/partials/`. To change site-wide info (business name, email, social links), edit `src/_data/site.js`. The copyright year comes from the build date, and years of experience are counted from the start date in `src/_data/experience.js`.

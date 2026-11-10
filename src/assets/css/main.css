@@ -320,6 +320,7 @@ a.special:not(.button):before {
   border-radius: 100%;
   border: solid 2px rgba(245,241,233,0.125);
   content: "\f105";
+  content: "\f105" / "";
   display: inline-block;
   font-size: 1.25em;
   height: 2em;
@@ -816,7 +817,7 @@ select,
 textarea {
   background: rgba(245,241,233,0.025);
   border-radius: 5px;
-  border: solid 2px rgba(245,241,233,0.125);
+  border: solid 2px rgba(245,241,233,0.6);
   color: inherit;
   display: block;
   outline: 0;
@@ -1724,6 +1725,7 @@ button:disabled,
 
 #header nav a[href="#menu"]:before {
   content: "\f0c9";
+  content: "\f0c9" / "";
   line-height: inherit;
 }
 
@@ -2335,20 +2337,20 @@ body.is-preload #banner p {
 }
 
 .wrapper.spotlight.style2 {
-  background-color: #62776C;
+  background-color: #5A6F64;
 }
 
 .wrapper.spotlight.style2:before,
 .wrapper.spotlight.style2:after {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:%2362776C%3B' /%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cpolygon points='0,100 100,0 100,100' style='fill:%235A6F64%3B' /%3E%3C/svg%3E");
 }
 
 .wrapper.spotlight.style2:before {
-  box-shadow: inset 0 -1px 0 0 #62776C, 0 1px 0 0 #62776C;
+  box-shadow: inset 0 -1px 0 0 #5A6F64, 0 1px 0 0 #5A6F64;
 }
 
 .wrapper.spotlight.style2:after {
-  box-shadow: inset 0 -1px 0 0 #62776C, 0 1px 0 0 #62776C;
+  box-shadow: inset 0 -1px 0 0 #5A6F64, 0 1px 0 0 #5A6F64;
 }
 
 @media screen and (max-width: 980px) {
@@ -2460,7 +2462,7 @@ body.is-preload #banner p {
 
 #footer .inner .copyright li {
   border-left: solid 2px rgba(245,241,233,0.125);
-  color: rgba(245,241,233,0.35);
+  color: rgba(245,241,233,0.75);
   display: inline-block;
   font-size: 0.9em;
   line-height: 1;
@@ -2602,7 +2604,7 @@ body.is-preload #banner p {
   margin-top: 1em;
   font-style: normal;
   font-size: 0.85em;
-  color: rgba(245, 241, 233, 0.5);
+  color: rgba(245, 241, 233, 0.7);
 }
 
 /* Animated logo */
@@ -2733,32 +2735,6 @@ body.is-preload #banner p {
   }
 }
 
-/* Eye divider */
-.eye-divider {
-  text-align: center;
-  padding: 1.5em 0;
-}
-
-.eye-divider svg {
-  width: 8em;
-  height: auto;
-}
-
-.eye-divider-icon {
-  animation: eye-blink 4s ease-in-out infinite;
-}
-
-@keyframes eye-blink {
-  0%, 42%, 50%, 100% {
-    transform: scaleY(1);
-    transform-origin: center;
-  }
-  45% {
-    transform: scaleY(0.1);
-    transform-origin: center;
-  }
-}
-
 /* Footer diamond spinner */
 .footer-diamond {
   display: inline-block;
@@ -2794,6 +2770,35 @@ html {
   html {
     scroll-behavior: auto;
   }
+
+  .animated-logo * {
+    animation: none !important;
+    stroke-dashoffset: 0 !important;
+    opacity: 1 !important;
+  }
+
+  .static-logo .logo-pulse,
+  .footer-diamond,
+  .scroll-indicator {
+    animation: none !important;
+  }
+
+  .testimonial-rotator blockquote {
+    transition: none;
+  }
+}
+
+/* Pause toggle (motion.js) - WCAG 2.2.2 */
+.motion-paused .static-logo .logo-pulse,
+.motion-paused .footer-diamond,
+.motion-paused .scroll-indicator {
+  animation-play-state: paused;
+}
+
+.motion-paused .animated-logo * {
+  animation: none !important;
+  stroke-dashoffset: 0 !important;
+  opacity: 1 !important;
 }
 
 /* Subtle hover enhancements */
@@ -2882,4 +2887,103 @@ a.special:not(.button):hover {
   box-shadow: 0 0 20px rgba(212, 175, 55, 0.6), 0 0 40px rgba(212, 175, 55, 0.3) !important;
   border-color: #D4AF37 !important;
   transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+/* Accessibility */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  top: -10em;
+  left: 1em;
+  z-index: 10001;
+  padding: 0.75em 1.25em;
+  background: #2E4A3B;
+  color: #F5F1E9;
+  border-radius: 5px;
+}
+
+.skip-link:focus {
+  top: 1em;
+}
+
+main:focus {
+  outline: none;
+}
+
+a:focus-visible,
+button:focus-visible,
+input[type="submit"]:focus-visible {
+  outline: 2px solid #F5F1E9;
+  outline-offset: 3px;
+}
+
+.motion-control {
+  text-align: center;
+  margin: 1em 0 0 0;
+}
+
+.motion-toggle {
+  font-size: 0.6em;
+  height: 2.75em;
+  line-height: 2.75em;
+  padding: 0 1.5em;
+}
+
+#menu .motion-toggle {
+  margin: 1.5em 0 1em 0;
+}
+
+/* Pricing headings (replace header-only tables on Services) */
+h3.pricing-heading {
+  font-family: "Source Sans Pro", Helvetica, sans-serif;
+  font-size: 0.9em;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+  line-height: 1.65;
+  margin: 0;
+  padding: 0 0.75em 0.75em 0.75em;
+  border-bottom: solid 2px rgba(245,241,233,0.125);
+}
+
+h3.pricing-heading + p {
+  margin-top: 2em;
+}
+
+/* Reflow at 320px - WCAG 1.4.10 */
+ul.contact a {
+  overflow-wrap: anywhere;
+}
+
+@media screen and (max-width: 360px) {
+  #header h1 {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    line-height: 1.35;
+    white-space: normal;
+    text-overflow: clip;
+  }
+}
+
+/* Contact form privacy notice */
+.form-privacy {
+  font-size: 0.8em;
+  margin: 0 0 1.5em 0;
+}
+
+/* Contact page copyright row (outside #footer): keep links on one line like the footer */
+.wrapper .copyright li {
+  display: inline-block;
+  margin-right: 1.5em;
 }

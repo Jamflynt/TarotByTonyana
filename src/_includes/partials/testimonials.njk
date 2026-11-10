@@ -1,18 +1,13 @@
-<section class="wrapper style1">
+<section class="wrapper style1" aria-label="Client quotes">
 	<div class="inner">
 		<div class="testimonial-rotator">
+			{%- for t in testimonials %}
 			<blockquote>
-				<p>"This girl definitely has a sixth sense about people. Not only that, she is incredibly genuine and kind and brings a positivity with her that I greatly appreciate and admire."</p>
-				<cite>— Kristen, Cincinnati OH</cite>
+				<p>"{{ t.excerpt }}"</p>
+				<cite>— {{ t.name }}, {{ t.city }} {{ t.state }}</cite>
 			</blockquote>
-			<blockquote>
-				<p>"She brings such a tranquil energy and is an absolute pleasure to know. I highly recommend her readings to gain clarity for yourself. She is a blessing."</p>
-				<cite>— Kellie, Fairfield OH</cite>
-			</blockquote>
-			<blockquote>
-				<p>"She has really made a huge impact on my life. I remember our interactions exactly when I need them and know what to do. She has helped me remember and reclaim MY POWER!"</p>
-				<cite>— Lequita, Cincinnati OH</cite>
-			</blockquote>
+			{%- endfor %}
 		</div>
+		<p class="motion-control"><button type="button" class="motion-toggle">Pause animations</button></p>
 	</div>
 </section>

@@ -1,5 +1,5 @@
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="description" content="{{ description | default(site.description) }}" />
 <title>{{ title }} | {{ site.title }}</title>
 
@@ -25,7 +25,8 @@
 {
 	"@context": "https://schema.org",
 	"@type": "ProfessionalService",
-	"name": "{{ site.title }} - {{ site.author }}",
+	"name": {{ site.title | dump | safe }},
+	"legalName": {{ site.title | dump | safe }},
 	"alternateName": ["Tarot By Tonyana", "Tonyana Cruz Tarot", "Subconscious Specialist"],
 	"description": "{{ site.description }}",
 	"url": "{{ site.url }}",
@@ -124,17 +125,25 @@
 	"sameAs": [
 		"{{ site.social.facebook }}",
 		"{{ site.social.instagram }}"
-	],
-	"aggregateRating": {
-		"@type": "AggregateRating",
-		"ratingValue": "5",
-		"reviewCount": "3"
-	}
+	]
 }
 </script>
-{% if jsonld %}
+{% if showReviewSchema %}
 <script type="application/ld+json">
-{{ jsonld | safe }}
+{
+	"@context": "https://schema.org",
+	"@type": "LocalBusiness",
+	"name": {{ site.title | dump | safe }},
+	"review": [
+		{%- for t in testimonials %}
+		{
+			"@type": "Review",
+			"author": {"@type": "Person", "name": {{ t.name | dump | safe }}},
+			"reviewBody": {{ t.quote | dump | safe }}
+		}{% if not loop.last %},{% endif %}
+		{%- endfor %}
+	]
+}
 </script>
 {% endif %}
 

@@ -1,7 +1,9 @@
 ---
 layout: base.njk
+sitemapPriority: "0.8"
 title: About Tonyana Cruz - Tarot Reader & Hypnotherapist
-description: Meet Tonyana Cruz, Cincinnati's Subconscious Specialist. 17+ years as a professional tarot reader, certified clinical hypnotherapist (IBCP), and parapsychology diploma holder serving the Greater Cincinnati area.
+eleventyComputed:
+  description: "Meet Tonyana Cruz, Cincinnati's Subconscious Specialist. {{ experience.years }}+ years as a professional tarot reader, certified clinical hypnotherapist (IBCP), and parapsychology diploma holder serving the Greater Cincinnati area."
 permalink: /about.html
 ---
 
@@ -17,12 +19,12 @@ permalink: /about.html
 		<div class="inner">
 
 			<h3 class="major">My Specialities</h3>
-			<p>My specialty is Tarot; it has been my primary tool as a professional Intuitive for the past 17 years. I began by creating basic Astrology charts, and that information continues to enhance my readings. Additionally, I offer Hypnosis to help break self-defeating patterns that manifest in our lives. My thirst for metaphysical knowledge is insatiable; however, it is consistently balanced by a practicality that my clients find refreshingly logical. My intention for this page is to enlighten, delight, and inform—an interaction that is, indeed, reciprocal. Each encounter enriches my own understanding as well.</p>
+			<p>My specialty is Tarot; it has been my primary tool as a professional Intuitive for the past <span data-years-since="{{ experience.since }}">{{ experience.years }}</span> years. I began by creating basic Astrology charts, and that information continues to enhance my readings. Additionally, I offer Hypnosis to help break self-defeating patterns that manifest in our lives. My thirst for metaphysical knowledge is insatiable; however, it is consistently balanced by a practicality that my clients find refreshingly logical. My intention for this page is to enlighten, delight, and inform—an interaction that is, indeed, reciprocal. Each encounter enriches my own understanding as well.</p>
 
 			<p>I hold a Parapsychology diploma from Stratford Career Institute and am certified as a Clinical Hypnotherapist through Transform Destiny, approved by IBCP. One could accurately describe me as a subconscious specialist! Nevertheless, intuition is something one either chooses to embrace or not. We all possess intuitive capabilities, though not everyone feels comfortable exploring them. Through our sessions, my aim is to empower you to confidently trust your own psychic impressions, enabling informed personal decisions. Allow me to serve as your Cosmic Catalyst. I would greatly appreciate your business, but more importantly, I wish to see you soar.</p>
 
 			<h3 class="major">Empower Your Journey with an Intuitive Expert</h3>
-			<p>With over 17 years of experience in Tarot, Astrology, and Hypnotherapy, Tonyana uniquely blends metaphysical insight with practical wisdom. Explore firsthand experiences from satisfied clients or discover transformative services designed specifically to awaken your own intuitive potential.</p>
+			<p>With over <span data-years-since="{{ experience.since }}">{{ experience.years }}</span> years of experience in Tarot, Astrology, and Hypnotherapy, Tonyana uniquely blends metaphysical insight with practical wisdom. Explore firsthand experiences from satisfied clients or discover transformative services designed specifically to awaken your own intuitive potential.</p>
 
 			<section class="features">
 				<article>

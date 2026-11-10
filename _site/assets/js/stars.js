@@ -5,6 +5,7 @@
   var ctx = canvas.getContext("2d");
   var stars = [];
   var count = 120;
+  var running = false;
 
   function resize() {
     canvas.width = window.innerWidth;
@@ -26,8 +27,18 @@
     }
   }
 
-  function draw() {
+  function paint() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (var i = 0; i < stars.length; i++) {
+      var s = stars[i];
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      ctx.fillStyle = "rgba(245, 241, 233, " + s.alpha + ")";
+      ctx.fill();
+    }
+  }
+
+  function step() {
     for (var i = 0; i < stars.length; i++) {
       var s = stars[i];
       s.alpha += s.dAlpha;
@@ -37,15 +48,43 @@
         s.y = canvas.height + 5;
         s.x = Math.random() * canvas.width;
       }
-      ctx.beginPath();
-      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-      ctx.fillStyle = "rgba(245, 241, 233, " + s.alpha + ")";
-      ctx.fill();
     }
+  }
+
+  function draw() {
+    if (!running) return;
+    step();
+    paint();
     requestAnimationFrame(draw);
   }
 
-  window.addEventListener("resize", resize);
+  function setPaused(paused) {
+    if (paused) {
+      running = false;
+      paint();
+    } else if (!running) {
+      running = true;
+      requestAnimationFrame(draw);
+    }
+  }
+
+  // Keep existing stars on resize (mobile URL-bar show/hide fires resize while
+  // scrolling); only re-place the ones that now fall outside the canvas.
+  window.addEventListener("resize", function () {
+    resize();
+    for (var i = 0; i < stars.length; i++) {
+      if (stars[i].x > canvas.width) stars[i].x = Math.random() * canvas.width;
+      if (stars[i].y > canvas.height) stars[i].y = Math.random() * canvas.height;
+    }
+    if (!running) paint();
+  });
+
   init();
-  draw();
+
+  if (window.siteMotion) {
+    window.siteMotion.onChange(setPaused);
+    setPaused(window.siteMotion.isPaused());
+  } else {
+    setPaused(window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  }
 })();

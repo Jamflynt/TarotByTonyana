@@ -1,0 +1,23 @@
+<form method="post" action="{{ site.formAction }}">
+	<input type="hidden" name="_subject" value="New message from Subconscious Specialist website" />
+	<input type="hidden" name="_captcha" value="true" />
+	<input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+	<div class="fields">
+		<div class="field">
+			<label for="name">Name</label>
+			<input type="text" name="name" id="name" autocomplete="name" />
+		</div>
+		<div class="field">
+			<label for="email">Email</label>
+			<input type="email" name="email" id="email" autocomplete="email" />
+		</div>
+		<div class="field">
+			<label for="message">Message</label>
+			<textarea name="message" id="message" rows="4"></textarea>
+		</div>
+	</div>
+	<p class="form-privacy">We use your name, email, and message only to reply to you. You won't be added to a mailing list. <a href="/privacy.html">Privacy Notice</a></p>
+	<ul class="actions">
+		<li><input type="submit" value="Send Message" /></li>
+	</ul>
+</form>

@@ -1,11 +1,11 @@
 <header id="header"{{ ' class="alt"' | safe if headerClass == 'alt' }}>
 	<h1><a href="/index.html">{{ headerTitle | default(site.title) }}</a></h1>
-	<nav>
-		<a href="#menu">Menu</a>
+	<nav aria-label="Site">
+		<a href="#menu" aria-controls="menu" aria-expanded="false">Menu</a>
 	</nav>
 </header>
 
-<nav id="menu">
+<nav id="menu" aria-label="Menu">
 	<div class="inner">
 		<h2>Menu</h2>
 		<ul class="links">
@@ -13,6 +13,7 @@
 			<li><a href="{{ item.url }}">{{ item.text }}</a></li>
 			{%- endfor %}
 		</ul>
-		<a href="#" class="close">Close</a>
+		<button type="button" class="motion-toggle">Pause animations</button>
+		<a href="#" class="close">Close menu</a>
 	</div>
 </nav>

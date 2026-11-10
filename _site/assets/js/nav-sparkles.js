@@ -39,10 +39,13 @@
   }
 
   document.addEventListener("DOMContentLoaded", function () {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
     // Menu button sparkle
     var menuBtn = document.querySelector('a[href="#menu"]');
     if (menuBtn) {
       menuBtn.addEventListener("click", function () {
+        if (window.siteMotion && window.siteMotion.isPaused()) return;
         fromElement(menuBtn, 10);
       });
     }
