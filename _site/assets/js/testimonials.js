@@ -26,9 +26,27 @@
   setHeight();
   window.addEventListener("resize", setHeight);
 
-  setInterval(function () {
+  var timer = null;
+
+  function next() {
     quotes[current].classList.remove("active");
     current = (current + 1) % quotes.length;
     quotes[current].classList.add("active");
-  }, 6000);
+  }
+
+  function setPaused(paused) {
+    if (paused) {
+      clearInterval(timer);
+      timer = null;
+    } else if (!timer) {
+      timer = setInterval(next, 6000);
+    }
+  }
+
+  if (window.siteMotion) {
+    window.siteMotion.onChange(setPaused);
+    setPaused(window.siteMotion.isPaused());
+  } else {
+    setPaused(window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  }
 })();

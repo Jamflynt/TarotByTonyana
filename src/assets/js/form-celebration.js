@@ -50,10 +50,14 @@
   }
 
   document.addEventListener("DOMContentLoaded", function () {
+    // Reduced motion: no burst, and no 1.4s wait before the form submits.
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
     var forms = document.querySelectorAll('form[action*="formsubmit"]');
     for (var i = 0; i < forms.length; i++) {
       (function (form) {
         form.addEventListener("submit", function (e) {
+          if (window.siteMotion && window.siteMotion.isPaused()) return;
           var btn = form.querySelector('input[type="submit"]');
           if (!btn) return;
 

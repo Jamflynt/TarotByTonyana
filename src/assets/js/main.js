@@ -62,24 +62,53 @@
 
 		};
 
+		// Keyboard + screen reader: move focus into the open menu, make the page
+		// behind it unreachable, and return focus to the Menu button on close.
+			var $menuToggle = $('a[href="#menu"]'),
+				pageWrapper = document.getElementById('page-wrapper');
+
+			$menu._sync = function() {
+
+				var open = $body.hasClass('is-menu-visible');
+
+				$menuToggle.attr('aria-expanded', open ? 'true' : 'false');
+
+				if (pageWrapper)
+					pageWrapper.inert = open;
+
+				if (open)
+					window.setTimeout(function() {
+						$menu.find('.links a').first().trigger('focus');
+					}, 50);
+				else if ($.contains($menu[0], document.activeElement))
+					$menuToggle.first().trigger('focus');
+
+			};
+
 		$menu._show = function() {
 
-			if ($menu._lock())
+			if ($menu._lock()) {
 				$body.addClass('is-menu-visible');
+				$menu._sync();
+			}
 
 		};
 
 		$menu._hide = function() {
 
-			if ($menu._lock())
+			if ($menu._lock()) {
 				$body.removeClass('is-menu-visible');
+				$menu._sync();
+			}
 
 		};
 
 		$menu._toggle = function() {
 
-			if ($menu._lock())
+			if ($menu._lock()) {
 				$body.toggleClass('is-menu-visible');
+				$menu._sync();
+			}
 
 		};
 

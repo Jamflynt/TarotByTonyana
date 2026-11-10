@@ -1,9 +1,10 @@
 ---
 layout: base.njk
+sitemapPriority: "1.0"
 title: Tarot Reader Cincinnati OH
-description: Tonyana Cruz is a professional tarot reader and clinical hypnotherapist in Cincinnati OH with 17+ years experience. Tarot readings, astrology, dream interpretation, hypnotherapy and death doula services. Book your session today.
+eleventyComputed:
+  description: "Tonyana Cruz is a professional tarot reader and clinical hypnotherapist in Cincinnati OH with {{ experience.years }}+ years experience. Tarot readings, astrology, dream interpretation, hypnotherapy and death doula services. Book your session today."
 headerClass: alt
-headerTitle: Subconscious Specialist - Tonyana Cruz
 permalink: /index.html
 ---
 
@@ -15,7 +16,7 @@ permalink: /index.html
 		<p>I am a Transformational Intuitive Tarot Reader who also utilizes the power of working with Dream Interpretation and Hypnosis. Please, allow me to be your Subconscious Specialist! I check in with your energy to see where you are headed if you continue with the same mind-set and help you make more informed decisions. How can I help you?</p>
 	</div>
 	<a href="#one" class="scroll-indicator" aria-label="Scroll down">
-		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 24" fill="none" stroke="#F5F1E9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+		<svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 24" fill="none" stroke="#F5F1E9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 			<polyline points="4,4 20,18 36,4" />
 		</svg>
 	</a>
@@ -28,7 +29,7 @@ permalink: /index.html
 			<a href="/about.html" class="image"><img src="/images/about1.jpg" alt="About Tonyana Cruz" loading="lazy" /></a>
 			<div class="content">
 				<h2 class="major">Get to know me</h2>
-				<p>My specialty is Tarot, it is my go to as a professional Intuitive for the last 17 years.  I started out do very basic Astrology charts and that information certainly helps during a reading. I also offer Hypnosis to break the self-defeating patterns that show up in our lives. My thirst for metaphysical knowledge is insatiable but...</p>
+				<p>My specialty is Tarot, it is my go to as a professional Intuitive for the last <span data-years-since="{{ experience.since }}">{{ experience.years }}</span> years. I started out doing very basic Astrology charts and that information certainly helps during a reading. I also offer Hypnosis to break the self-defeating patterns that show up in our lives. My thirst for metaphysical knowledge is insatiable but...</p>
 				<a href="/about.html" class="special">continue reading</a>
 			</div>
 		</div>
@@ -39,7 +40,7 @@ permalink: /index.html
 			<a href="/services.html" class="image"><img src="/images/IMG_0190.png" alt="Tarot reading services" loading="lazy" /></a>
 			<div class="content">
 				<h2 class="major">Services</h2>
-				<p>I offer a varity of different services. From affordable 20 minute sessions for getting you through that rough spot to full 1 hour hypnosis sessions to fully expand your mind and explore that Subconscious space. Click learn more to find my full services.</p>
+				<p>I offer a variety of different services. From affordable 20 minute sessions for getting you through that rough spot to full 1 hour hypnosis sessions to fully expand your mind and explore that Subconscious space. Click learn more to find my full services.</p>
 				<a href="/services.html" class="special">Learn more</a>
 			</div>
 		</div>

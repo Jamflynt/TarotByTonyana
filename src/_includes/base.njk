@@ -5,13 +5,17 @@
 	</head>
 	<body class="is-preload">
 
-		<canvas id="stars-canvas"></canvas>
+		<canvas id="stars-canvas" aria-hidden="true"></canvas>
 
 		<div id="page-wrapper">
 
+			<a class="skip-link" href="#main">Skip to content</a>
+
 			{% include "partials/nav.njk" %}
 
+			<main id="main" tabindex="-1">
 			{{ content | safe }}
+			</main>
 
 			{% if showTestimonials !== false and showFooter !== false %}
 			{% include "partials/testimonials.njk" %}
